@@ -203,13 +203,12 @@ function PostCards({ post, setDeleted }) {
               </span>
 
               <div>
-                {/* <Button href={`/note/${note._id}`}>Edit</Button> */}
                 <Button
                   variant="danger"
                   className="mx-2"
                   onClick={deleteHandler}
                 >
-                  Delete
+                  Delete Post
                 </Button>
               </div>
             </Card.Header>
@@ -225,9 +224,6 @@ function PostCards({ post, setDeleted }) {
                     </Accordion>
                   </ListGroup.Item>
                 ))}
-                <ListGroup.Item>Comment 3</ListGroup.Item>
-                <ListGroup.Item>Comment 4</ListGroup.Item>
-                <ListGroup.Item>Comment 5</ListGroup.Item>
                 <ListGroup.Item>
                   <input
                     type="text"
@@ -249,72 +245,6 @@ function PostCards({ post, setDeleted }) {
           </Card>
         </Accordion>
       </Card>
-      {/* <Card style={{ marginTop: "0rem", width: "22rem" }}>
-        <Card.Body>
-          <Card.Title></Card.Title>
-          <Card.Text className="body">{post.body}</Card.Text>
-          <footer className="blockquote-footer">
-            <cite title="Source Title"> {post.name}</cite>
-          </footer>
-          <Card.Footer className="text-muted">2 days ago</Card.Footer>
-          <span className="like_container">
-            {like ? (
-              <FontAwesomeIcon
-                className="liked"
-                onClick={liking}
-                icon={faThumbsUp}
-              />
-            ) : (
-              <FontAwesomeIcon
-                className="notLiked"
-                style={{ color: "#62bbed" }}
-                onClick={liking}
-                icon={faThumbsUp}
-              />
-            )}
-            <h3>{post.likeCount}</h3>
-          </span>
-          <Accordion>
-            <Accordion.Item eventKey="0">
-              <Accordion.Header>
-                <FontAwesomeIcon className="comment" icon={faComment} />
-                <h3>{post.commentCount}</h3>
-              </Accordion.Header>
-              <Accordion.Body>
-                <ListGroup>
-                  <ListGroup.Item>
-                    <span className="comment_section">
-                      <p>Comment 1</p>
-                      <p
-                        onClick={(e) => setShowReplies(!showReplies)}
-                        className="reply_control"
-                      >
-                        Show Replies
-                      </p>
-                    </span>
-                    {showReplies && (
-                      <ListGroup>
-                        <ListGroup.Item>Reply 1</ListGroup.Item>
-                        <ListGroup.Item>Reply 2</ListGroup.Item>
-                        <ListGroup.Item>Reply 3</ListGroup.Item>
-                        <ListGroup.Item>Reply 4</ListGroup.Item>
-                        <ListGroup.Item>Reply 5</ListGroup.Item>
-                        <ListGroup.Item>
-                          <input type="text" placeholder="Add a comment" />
-                        </ListGroup.Item>
-                      </ListGroup>
-                    )}
-                  </ListGroup.Item>
-                  <ListGroup.Item>Comment 2</ListGroup.Item>
-                  <ListGroup.Item>Comment 3</ListGroup.Item>
-                  <ListGroup.Item>Comment 4</ListGroup.Item>
-                  <ListGroup.Item>Comment 5</ListGroup.Item>
-                </ListGroup>
-              </Accordion.Body>
-            </Accordion.Item>
-          </Accordion>
-        </Card.Body>
-      </Card> */}
     </Container>
   );
 }

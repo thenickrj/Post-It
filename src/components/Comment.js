@@ -45,10 +45,7 @@ function Comment({ comment }) {
         </footer>
 
         <Accordion.Toggle as={Card.Text} variant="link" eventKey="1">
-          <p
-            // onClick={(e) => setShowReplies(!showReplies)}
-            className="reply_control"
-          >
+          <p className="reply_control">
             {reply.length > 0 ? "Show Replies" : "Add Reply"}
           </p>
         </Accordion.Toggle>
@@ -58,11 +55,6 @@ function Comment({ comment }) {
           {reply.map((rep) => (
             <ListGroup.Item>{rep.body}</ListGroup.Item>
           ))}
-          {/* <ListGroup.Item>Reply 1</ListGroup.Item>
-          <ListGroup.Item>Reply 2</ListGroup.Item>
-          <ListGroup.Item>Reply 3</ListGroup.Item>
-          <ListGroup.Item>Reply 4</ListGroup.Item>
-          <ListGroup.Item>Reply 5</ListGroup.Item> */}
           <ListGroup.Item>
             <input
               type="text"
