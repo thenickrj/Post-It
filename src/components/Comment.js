@@ -11,7 +11,7 @@ function Comment({ comment }) {
 
   function fetchReply() {
     fetch(
-      `http://localhost:5000/reply/post=${comment.postId}/comment=${comment._id}`
+      `https://just-post--it.herokuapp.com/reply/post=${comment.postId}/comment=${comment._id}`
     )
       .then((response) => response.json())
       .then((data) => setReply(data));
@@ -30,10 +30,12 @@ function Comment({ comment }) {
     };
 
     console.log(data);
-    axios.post("http://localhost:5000/addReply", data).then((res) => {
-      fetchReply();
-      setReplyInput("");
-    });
+    axios
+      .post("https://just-post--it.herokuapp.com/addReply", data)
+      .then((res) => {
+        fetchReply();
+        setReplyInput("");
+      });
   }
 
   return (

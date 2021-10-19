@@ -225,17 +225,19 @@ function Login() {
         password: password,
       };
 
-      axios.post("http://localhost:5000/login", data).then((res) => {
-        console.log(res);
-        if (res.data === "Invalid Credentials") {
-          setErrorMsg(res.data);
-          setErrorStatus(true);
-        } else {
-          localStorage.setItem("userInfo", JSON.stringify(res.data));
-          // history.push("/");
-          setLoginRedirect(true);
-        }
-      });
+      axios
+        .post("https://just-post--it.herokuapp.com/login", data)
+        .then((res) => {
+          console.log(res);
+          if (res.data === "Invalid Credentials") {
+            setErrorMsg(res.data);
+            setErrorStatus(true);
+          } else {
+            localStorage.setItem("userInfo", JSON.stringify(res.data));
+            // history.push("/");
+            setLoginRedirect(true);
+          }
+        });
     } else if (
       email === "" ||
       password === "" ||

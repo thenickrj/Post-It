@@ -227,7 +227,7 @@ function SignUp() {
       };
       console.log(data);
       axios
-        .post("http://localhost:5000/signup", data)
+        .post("https://just-post--it.herokuapp.com/signup", data)
         .then((res) => {
           if (res.data === "Account already exist") {
             setErrorMsg(res.data);

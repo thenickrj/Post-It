@@ -91,18 +91,22 @@ function PostCards({ post, setDeleted }) {
       postId: post._id,
     };
     if (likeStatus) {
-      axios.post("http://localhost:5000/unLike", data).then((res) => {
-        setLikeNumber(likeNumber - 1);
-      });
+      axios
+        .post("https://just-post--it.herokuapp.com/unLike", data)
+        .then((res) => {
+          setLikeNumber(likeNumber - 1);
+        });
     } else {
-      axios.post("http://localhost:5000/addLike", data).then((res) => {
-        setLikeNumber(likeNumber + 1);
-      });
+      axios
+        .post("https://just-post--it.herokuapp.com/addLike", data)
+        .then((res) => {
+          setLikeNumber(likeNumber + 1);
+        });
     }
   }
 
   function fetchComments() {
-    fetch(`http://localhost:5000/comment/post=${post._id}`)
+    fetch(`https://just-post--it.herokuapp.com/comment/post=${post._id}`)
       .then((response) => response.json())
       .then((data) => setComments(data));
 
@@ -110,7 +114,7 @@ function PostCards({ post, setDeleted }) {
   }
   useEffect(() => {
     fetch(
-      `http://localhost:5000/likes/email=${userInfo.email}/post=${post._id}`
+      `https://just-post--it.herokuapp.com/likes/email=${userInfo.email}/post=${post._id}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -127,7 +131,7 @@ function PostCards({ post, setDeleted }) {
       console.log(post);
       console.log(post._id);
       axios
-        .delete("http://localhost:5000/post/delete=" + post._id)
+        .delete("https://just-post--it.herokuapp.com/post/delete=" + post._id)
         .then((response) => {
           console.log(response.data);
           setDeleted(true);
@@ -143,10 +147,12 @@ function PostCards({ post, setDeleted }) {
     };
 
     console.log(data);
-    axios.post("http://localhost:5000/addComment", data).then((res) => {
-      setCommentNumber(commentNumber + 1);
-      fetchComments();
-    });
+    axios
+      .post("https://just-post--it.herokuapp.com/addComment", data)
+      .then((res) => {
+        setCommentNumber(commentNumber + 1);
+        fetchComments();
+      });
   }
 
   return (
