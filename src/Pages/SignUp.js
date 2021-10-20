@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { useHistory } from "react-router";
+import { Redirect, useHistory } from "react-router";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import signIn from "../images/signIn.svg";
 
@@ -200,6 +201,8 @@ function SignUp() {
   const [errorMsg, setErrorMsg] = useState();
   const [errorStatus, setErrorStatus] = useState(false);
 
+  const [loginRedirect, setLoginRedirect] = useState(false);
+
   let history = useHistory();
 
   function validateEmail(emailCheck) {
@@ -234,8 +237,9 @@ function SignUp() {
             setErrorStatus(true);
           } else {
             setErrorStatus(false);
-            // localStorage.setItem("userInfo", JSON.stringify(res.data));
-            history.push("/login");
+            localStorage.setItem("userInfo", JSON.stringify(res.data));
+            // history.push("/login");
+            setLoginRedirect(true);
           }
           // console.log("1", res.data);
           console.log(res);
@@ -346,8 +350,9 @@ function SignUp() {
         </div>
       </div>
       <div class="login_redirect">
-        Already have an account? <a href="/login">Click here</a> to login
+        Already have an account? <Link to="/login">Click here</Link> to login
       </div>
+      {loginRedirect && <Redirect to="/" />}
     </Container>
   );
 }

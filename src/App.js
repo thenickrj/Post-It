@@ -6,24 +6,28 @@ import {
 } from "react-router-dom";
 import { faThumbsUp, faThumbtack } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import "./App.css";
-import { useState } from "react";
+import "./App.css";
+
+import { useEffect, useState } from "react";
 import SignUp from "./Pages/SignUp";
 import Login from "./Pages/Login";
 import Home from "./Pages/Home";
 import Header from "./components/Header";
+import { useHistory } from "react-router";
 
 // const Container = styled.div``;
 
 function App() {
   const [like, setLike] = useState(false);
+  const [userInfo, setUserInfo] = useState(localStorage.getItem("userInfo"));
+  var history = useHistory();
 
-  var userInfo;
-  if (localStorage.userInfo) {
-    var userInfo = JSON.parse(localStorage.userInfo) || undefined;
-    console.log(userInfo);
-  }
-
+  // if (localStorage.userInfo) {
+  // setUserInfo(JSON.parse(localStorage.userInfo) || undefined);
+  // }
+  useEffect(() => {
+    setUserInfo(localStorage.getItem("userInfo"));
+  }, []);
   return (
     <div>
       <Router>
@@ -31,17 +35,21 @@ function App() {
           <Route path="/signup">
             <SignUp />
           </Route>
-          <Route path="/login">
+          <Route exact path="/login">
             <Login />
           </Route>
           <Route exact path="/">
-            {userInfo ? (
+            {userInfo !== null ? (
               <>
                 <Header />
                 <Home />
               </>
             ) : (
-              <Login />
+              <div className="App-header">
+                <h1>
+                  You need to <a href="/login">Login</a> first
+                </h1>
+              </div>
             )}
           </Route>
         </Switch>

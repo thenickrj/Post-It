@@ -80,14 +80,28 @@ function Home() {
   var [posts, setPosts] = useState([]);
   const [modalShow, setModalShow] = useState(false);
 
+  // var userInfo = JSON.parse(localStorage.userInfo);
+
   var [deleted, setDeleted] = useState(false);
 
   let history = useHistory();
+  var userInfo;
+  if (localStorage.userInfo) {
+    userInfo = JSON.parse(localStorage.userInfo) || undefined;
+  }
+
+  async function checkLogged() {
+    if (localStorage.getItem("userInfo") == null) {
+      history.push("/login");
+    }
+  }
 
   useEffect(() => {
     fetch("https://just-post--it.herokuapp.com/post")
       .then((response) => response.json())
       .then((data) => setPosts(data));
+
+    // checkLogged();
   }, [modalShow, deleted]);
 
   return (
@@ -107,7 +121,7 @@ function Home() {
           <PostCards setDeleted={setDeleted} post={post} />
         ))}
       </div>
-      <AddPost show={modalShow} onHide={() => setModalShow(false)} />{" "}
+      <AddPost show={modalShow} onHide={() => setModalShow(false)} />
     </Container>
   );
 }
