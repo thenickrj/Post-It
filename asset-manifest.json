@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/Post-It/static/css/main.a85cdc3b.chunk.css",
+    "main.js": "/Post-It/static/js/main.d34da268.chunk.js",
+    "main.js.map": "/Post-It/static/js/main.d34da268.chunk.js.map",
+    "runtime-main.js": "/Post-It/static/js/runtime-main.440f3d0e.js",
+    "runtime-main.js.map": "/Post-It/static/js/runtime-main.440f3d0e.js.map",
+    "static/js/2.f3430a40.chunk.js": "/Post-It/static/js/2.f3430a40.chunk.js",
+    "static/js/2.f3430a40.chunk.js.map": "/Post-It/static/js/2.f3430a40.chunk.js.map",
+    "static/js/3.6af9e206.chunk.js": "/Post-It/static/js/3.6af9e206.chunk.js",
+    "static/js/3.6af9e206.chunk.js.map": "/Post-It/static/js/3.6af9e206.chunk.js.map",
+    "index.html": "/Post-It/index.html",
+    "static/css/main.a85cdc3b.chunk.css.map": "/Post-It/static/css/main.a85cdc3b.chunk.css.map",
+    "static/js/2.f3430a40.chunk.js.LICENSE.txt": "/Post-It/static/js/2.f3430a40.chunk.js.LICENSE.txt",
+    "static/media/signIn.ae280300.svg": "/Post-It/static/media/signIn.ae280300.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.440f3d0e.js",
+    "static/js/2.f3430a40.chunk.js",
+    "static/css/main.a85cdc3b.chunk.css",
+    "static/js/main.d34da268.chunk.js"
+  ]
+}
