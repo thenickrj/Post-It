@@ -46,10 +46,12 @@ function AddPost(props) {
     };
     console.log(data);
 
-    axios.post("http://localhost:5000/addPost", data).then((res) => {
-      // fetchReply();
-      props.onHide();
-    });
+    axios
+      .post("https://just-post--it.herokuapp.com/addPost", data)
+      .then((res) => {
+        // fetchReply();
+        props.onHide();
+      });
     setPostInput("");
   }
 
