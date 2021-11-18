@@ -38,7 +38,6 @@ function AddPost(props) {
   function submitPost() {
     const data = {
       body: postInput,
-      userId: userInfo._id,
       name: userInfo.name,
       email: userInfo.email,
       likeCount: 0,
@@ -84,7 +83,7 @@ function AddPost(props) {
   );
 }
 
-function Home() {
+function Test() {
   let data = [1, 2, 3, 4];
   var [posts, setPosts] = useState([]);
   const [modalShow, setModalShow] = useState(false);
@@ -137,4 +136,4 @@ function Home() {
 }
 
 //
-export default Home;
+export default Test;

@@ -13,12 +13,20 @@ router.route("/post").get((req, res) => {
 // Route to add a new post
 router.route("/addPost").post((req, res) => {
   const body = req.body.body;
+  const userId = req.body.userId;
   const name = req.body.name;
   const email = req.body.email;
   const likeCount = req.body.likeCount;
   const commentCount = req.body.commentCount;
 
-  const newPost = new Post({ body, name, email, likeCount, commentCount });
+  const newPost = new Post({
+    body,
+    userId,
+    name,
+    email,
+    likeCount,
+    commentCount,
+  });
 
   newPost
     .save()

@@ -5,6 +5,7 @@ const Schema = mongoose.Schema;
 const postsSchema = new Schema(
   {
     body: { type: String, required: true },
+    userId: { type: String, required: true },
     name: { type: String, required: true },
     likeCount: { type: Number, required: true },
     commentCount: { type: Number, required: true },
