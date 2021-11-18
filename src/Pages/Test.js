@@ -38,7 +38,6 @@ function AddPost(props) {
   function submitPost() {
     const data = {
       body: postInput,
-      userId: userInfo._id,
       name: userInfo.name,
       email: userInfo.email,
       likeCount: 0,
@@ -46,10 +45,12 @@ function AddPost(props) {
     };
     console.log(data);
 
-    axios.post("http://localhost:5000/addPost", data).then((res) => {
-      // fetchReply();
-      props.onHide();
-    });
+    axios
+      .post("https://just-post--it.herokuapp.com/addPost", data)
+      .then((res) => {
+        // fetchReply();
+        props.onHide();
+      });
     setPostInput("");
   }
 
@@ -82,7 +83,7 @@ function AddPost(props) {
   );
 }
 
-function Home() {
+function Test() {
   let data = [1, 2, 3, 4];
   var [posts, setPosts] = useState([]);
   const [modalShow, setModalShow] = useState(false);
@@ -135,4 +136,4 @@ function Home() {
 }
 
 //
-export default Home;
+export default Test;

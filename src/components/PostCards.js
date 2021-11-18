@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Avatar, makeStyles } from "@material-ui/core";
 import {
   Accordion,
   Badge,
@@ -19,6 +20,12 @@ import Comment from "./Comment";
 import moment from "moment";
 
 const Container = styled.div`
+  .cardCSS {
+    padding-bottom: 5%;
+    border-radius: 42px;
+    background: #d9dade;
+    box-shadow: -5px -5px 10px #9e9fa2, 5px 5px 10px #ffffff;
+  }
   .liked,
   .notLiked,
   .comment {
@@ -157,12 +164,19 @@ function PostCards({ post, setDeleted }) {
 
   return (
     <Container>
-      <Card
-        style={{ marginTop: "0rem", width: "22rem", border: "1px solid black" }}
-      >
+      <Card className="cardCSS" style={{ marginTop: "0rem", width: "22rem" }}>
         <h1 style={{ padding: "5%" }}>{post.body}</h1>
         <footer style={{ paddingLeft: "20%" }} className="blockquote-footer">
-          <cite title="Source Title"> {post.name}</cite>
+          <cite title="Source Title">
+            <Avatar
+              alt="Profile"
+              src={`https://joeschmoe.io/api/v1/${post?.name}`}
+              // className={classes.avatarImage}
+              style={{ backgroundColor: "#7C7F90" }}
+            />
+            {/* <img src={`https://joeschmoe.io/api/v1/${post?.name}`} alt="" /> */}
+            {post.name}
+          </cite>
         </footer>
         <Card.Footer className="text-muted">
           {moment(post.createdAt).format("D MMMM YYYY")}
@@ -209,13 +223,15 @@ function PostCards({ post, setDeleted }) {
               </span>
 
               <div>
-                <Button
-                  variant="danger"
-                  className="mx-2"
-                  onClick={deleteHandler}
-                >
-                  Delete Post
-                </Button>
+                {post.userId === userInfo._id && (
+                  <Button
+                    variant="danger"
+                    className="mx-2"
+                    onClick={deleteHandler}
+                  >
+                    Delete Post
+                  </Button>
+                )}
               </div>
             </Card.Header>
             <Accordion.Collapse eventKey="0">
